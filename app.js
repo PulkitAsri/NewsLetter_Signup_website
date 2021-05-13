@@ -70,10 +70,4 @@ app.listen(process.env.PORT || 3000, function () {
 });
 
 
-//  Api Key 
-// 
-
-// List Id
-// 
-
 //https://young-shelf-38170.herokuapp.com/
