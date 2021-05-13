@@ -4,9 +4,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
+require('dotenv').config();
 
-
-
+console.log(process.env);
 
 const app = express();
 app.use(bodyParser.urlencoded({
@@ -35,12 +35,14 @@ app.post("/", function (req, res) {
     };
 
     const jsonData = JSON.stringify(data);
+    const list_id= process.env.YOUR_LIST_KEY;
+    const api_key= process.env.YOUR_API_KEY;
 
-    const url = "https://us1.api.mailchimp.com/3.0/lists/8ba058b952?";
+    const url = "https://us1.api.mailchimp.com/3.0/lists/"+list_id+"?" ;
 
     const options = {
         method: "POST",
-        auth: "Pulkit_asri:42c5bfa000c144ea47f5b85dbe7b246b-us1"
+        auth: "Pulkit_asri:"+api_key
     }
 
     const request = https.request(url, options, function (response) {
@@ -69,7 +71,9 @@ app.listen(process.env.PORT || 3000, function () {
 
 
 //  Api Key 
-// 42c5bfa000c144ea47f5b85dbe7b246b-us1
+// 
 
 // List Id
-// 8ba058b952
+// 
+
+//https://young-shelf-38170.herokuapp.com/
